@@ -83,7 +83,7 @@ verify_components() {
 while true; do
     sudo apt install figlet -y
     clear
-    figlet -f mini Abishek Kafle 
+    figlet -f mini Creator: Abishek Kafle 
     figlet EasyHadoop -c
     echo "Apache Hadoop Installation and Configuration Menu"
     echo "1. Install Java"
