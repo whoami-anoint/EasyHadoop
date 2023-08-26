@@ -21,9 +21,9 @@ git clone https://github.com/your-username/EasyHadoop.git
 ```
 2. Change into the EasyHadoop directory:
 ```
-   cd EasyHadoop
+cd EasyHadoop
 ```
 3. Run the installation script:
-   ```
-   ./easyhadoop.sh
-   ```
+```
+./easyhadoop.sh
+```
