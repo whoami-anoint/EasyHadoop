@@ -7,7 +7,7 @@
 ## Requirements
 <b>Before getting started with EasyHadoop, make sure you have the following requirements:</b>
 
-- Ubuntu 20.04 installed on your machine
+- Kali Linux / Ubuntu 20.04 installed on your machine
 - Internet connectivity to download necessary packages
 - Basic knowledge of Hadoop and its components
 
