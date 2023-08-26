@@ -10,7 +10,7 @@ EasyHadoop is a user-friendly and efficient tool for simplifying the setup and c
 - Internet connectivity to download necessary packages
 - Basic knowledge of Hadoop and its components
 
-Installation
+## Installation
 To install EasyHadoop, follow these simple steps:
 
 
@@ -23,8 +23,28 @@ git clone https://github.com/your-username/EasyHadoop.git
 ```
 cd EasyHadoop
 ```
-3. Run the installation script:
+3.  Change the permissions of a file `easyhadoop.sh` to make it executable:
 ```
 chmod +x easyhadoop.sh
+```
+4.  Run the installation script:
+   ```
 ./easyhadoop.sh
 ```
+## Access the Hadoop web interface:
+   - Open your web browser and navigate to http://localhost:9870 to access the Hadoop NameNode web interface.
+ 
+## Contributing
+Contributions are welcome! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
+
+## License
+EasyHadoop is licensed under the [Apache License 2.0](LICENSE).
+
+## Acknowledgements
+We would like to thank the open-source community for their contributions and support in making EasyHadoop a reality.
+
+## Contact
+If you have any questions or need further assistance, please contact us at whoami_anoint@bugcrowdninja.com.
+
+#### Happy Hadooping!
+#### Happy Coding! 😚
