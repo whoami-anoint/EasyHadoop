@@ -17,7 +17,7 @@ To install EasyHadoop, follow these simple steps:
 1. Clone this repository to your local machine using the following command:
 
 ```
-git clone https://github.com/your-username/EasyHadoop.git
+git clone https://github.com/whoami-anoint/EasyHadoop.git
 ```
 2. Change into the EasyHadoop directory:
 ```
