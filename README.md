@@ -3,6 +3,9 @@ Simplified Hadoop Setup and Configuration Automation
 
 EasyHadoop is a user-friendly and efficient tool for simplifying the setup and configuration of Apache Hadoop on Linux. 
 
+## Demo
+![image](https://github.com/whoami-anoint/EasyHadoop/assets/72187543/82d2d791-57c5-4237-8335-3c1c8c5aa216)
+
 ## Requirements
 <b>Before getting started with EasyHadoop, make sure you have the following requirements:</b>
 
