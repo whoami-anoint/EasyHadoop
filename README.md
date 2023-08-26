@@ -25,5 +25,6 @@ cd EasyHadoop
 ```
 3. Run the installation script:
 ```
+chmod +x easyhadoop.sh
 ./easyhadoop.sh
 ```
