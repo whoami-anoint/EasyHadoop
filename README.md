@@ -33,10 +33,10 @@ chmod +x easyhadoop.sh
 ./easyhadoop.sh
 ```
 ## Access the Hadoop web interface:
-   - Open your web browser and navigate to http://localhost:9870 to access the Hadoop NameNode web interface.
+   Open your web browser and navigate to http://localhost:9870 to access the Hadoop NameNode web interface.
  
 ## Contributing
-Contributions are welcome! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
+Contributions are welcome! If you encounter any issues or have suggestions for improvements, please feel free to open an [issue](https://github.com/whoami-anoint/EasyHadoop/issues) or submit a [pull request](https://github.com/whoami-anoint/EasyHadoop/pulls).
 
 ## License
 EasyHadoop is licensed under the [Apache License 2.0](LICENSE).
