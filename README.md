@@ -47,5 +47,5 @@ We would like to thank the open-source community for their contributions and sup
 ## Contact
 If you have any questions or need further assistance, please contact us at whoami_anoint@bugcrowdninja.com.
 
-#### Happy Hadooping!
-#### Happy Coding! 😚
+#### Happy Hadooping!🤗
+#### Happy Coding!😚
