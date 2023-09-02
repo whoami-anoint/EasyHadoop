@@ -33,7 +33,7 @@ chmod +x easyhadoop.sh
 ./easyhadoop.sh
 ```
 ## Access the Hadoop web interface:
-   Open your web browser and navigate to http://localhost:9870 to access the Hadoop NameNode web interface.
+   Open your web browser and navigate to http://localhost:9870 or you can also use ec2 dns public ip to access the Hadoop NameNode web interface.
  
 ## Contributing
 Contributions are welcome! If you encounter any issues or have suggestions for improvements, please feel free to open an [issue](https://github.com/whoami-anoint/EasyHadoop/issues) or submit a [pull request](https://github.com/whoami-anoint/EasyHadoop/pulls).
