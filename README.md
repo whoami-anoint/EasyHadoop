@@ -1,9 +1,28 @@
-# EasyHadoop
-<b>EasyHadoop</b> is a user-friendly and efficient tool for simplifying the setup and configuration of Apache Hadoop on Linux. 
+# 𝐄𝐚𝐬𝐲𝐇𝐚𝐝𝐨𝐨𝐩
+
+𝐄𝐚𝐬𝐲𝐇𝐚𝐝𝐨𝐨𝐩 is a user-friendly and efficient tool for simplifying the setup and configuration of <b>Apache Hadoop</b> on Linux. 
+<pre>
+   ____                     __ __           __                 
+  / __/ ___ _  ___  __ __  / // / ___ _ ___/ / ___  ___    ___ 
+ / _/  / _ `/ (_-< / // / / _  / / _ `// _  / / _ \/ _ \  / _ \
+/___/  \_,_/ /___/ \_, / /_//_/  \_,_/ \_,_/  \___/\___/ / .__/
+                  /___/                                 /_/    
+</pre>
 
 ## Demo
 ![image](https://github.com/whoami-anoint/EasyHadoop/blob/main/Demo.gif)
 
+## Key Features
+
+**1. Easy Setup**: EasyHadoop makes installing Apache Hadoop a piece of cake. You don't need to be a tech expert to get it up and running.
+
+**2. Works on Linux**: It's compatible with many types of Linux, so you can use it no matter which Linux version you prefer.
+
+**3. Speedy**: EasyHadoop gets your Hadoop system ready quickly, so you can start analyzing your data in a flash.
+
+**4. Customize as You Like**: Even if you're not a tech whiz, you can still tweak how EasyHadoop works to fit your needs.
+
+   
 ## Requirements
 <b>Before getting started with EasyHadoop, make sure you have the following requirements:</b>
 
