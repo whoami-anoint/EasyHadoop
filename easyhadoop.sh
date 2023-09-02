@@ -22,12 +22,14 @@ install_openssh() {
     sudo apt install openssh-server openssh-client -y
 }
 
-# Function to install Hadoop
+# Function to download and install Hadoop
 install_hadoop() {
+    HADOOP_DOWNLOAD_URL="https://archive.apache.org/dist/hadoop/common/hadoop-3.1.0/hadoop-3.1.0.tar.gz"
+
     cd ~
-    wget https://downloads.apache.org/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz
-    tar -xvzf hadoop-3.3.1.tar.gz
-    sudo mv hadoop-3.3.1 /usr/local/hadoop
+    wget "$HADOOP_DOWNLOAD_URL" -O hadoop-3.1.0.tar.gz
+    tar -xzvf hadoop-3.1.0.tar.gz
+    sudo mv hadoop-3.1.0 /usr/local/hadoop
     sudo mkdir /usr/local/hadoop/logs
     sudo chown -R hadoop:hadoop /usr/local/hadoop
 
@@ -49,21 +51,74 @@ install_hadoop() {
     sudo wget https://jcenter.bintray.com/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar
 }
 
+# Function to configure core-site.xml
+configure_core_site() {
+    echo "<?xml version=\"1.0\"?>
+    <?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>
+    <configuration>
+        <property>
+            <name>fs.defaultFS</name>
+            <value>hdfs://$1:9000</value>
+        </property>
+    </configuration>" | sudo tee $HADOOP_HOME/etc/hadoop/core-site.xml
+}
+
+# Function to configure hdfs-site.xml
+configure_hdfs_site() {
+    echo "<?xml version=\"1.0\"?>
+    <?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>
+    <configuration>
+        <property>
+            <name>dfs.replication</name>
+            <value>1</value>
+        </property>
+        <property>
+            <name>dfs.namenode.name.dir</name>
+            <value>file:///home/hadoop/hadoop/hadoopdata/hdfs/namenode</value>
+        </property>
+        <property>
+            <name>dfs.datanode.data.dir</name>
+            <value>file:///home/hadoop/hadoop/hadoopdata/hdfs/datanode</value>
+        </property>
+    </configuration>" | sudo tee $HADOOP_HOME/etc/hadoop/hdfs-site.xml
+}
+
+# Function to configure yarn-site.xml
+configure_yarn_site() {
+    echo "<?xml version=\"1.0\"?>
+    <?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>
+    <configuration>
+        <property>
+            <name>yarn.nodemanager.aux-services</name>
+            <value>mapreduce_shuffle</value>
+        </property>
+        <property>
+            <name>yarn.nodemanager.auxservices.mapreduce.shuffle.class</name>
+            <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+        </property>
+        <property>
+            <name>yarn.resourcemanager.hostname</name>
+            <value>$1</value>
+        </property>
+    </configuration>" | sudo tee $HADOOP_HOME/etc/hadoop/yarn-site.xml
+}
+
 # Function to configure Hadoop files
 configure_hadoop_files() {
-    sudo nano $HADOOP_HOME/etc/hadoop/core-site.xml
-    # Add the core-site.xml content as mentioned in your content
+    read -p "Enter Public DNS/IP or 'localhost' for Hadoop configuration: " input_dns
 
-    sudo mkdir -p /home/hadoop/hdfs/{namenode,datanode}
-    sudo chown -R hadoop:hadoop /home/hadoop/hdfs
-    sudo nano $HADOOP_HOME/etc/hadoop/hdfs-site.xml
-    # Add the hdfs-site.xml content as mentioned in your content
+    # Configure core-site.xml
+    configure_core_site "$input_dns"
 
-    sudo nano $HADOOP_HOME/etc/hadoop/mapred-site.xml
-    # Add the mapred-site.xml content as mentioned in your content
+    # Create HDFS data directories
+    sudo mkdir -p /home/hadoop/hadoop/hadoopdata/hdfs/{namenode,datanode}
+    sudo chown -R hadoop:hadoop /home/hadoop/hadoop/hadoopdata/hdfs
 
-    sudo nano $HADOOP_HOME/etc/hadoop/yarn-site.xml
-    # Add the yarn-site.xml content as mentioned in your content
+    # Configure hdfs-site.xml
+    configure_hdfs_site
+
+    # Configure yarn-site.xml
+    configure_yarn_site "$input_dns"
 
     hdfs namenode -format
 }
@@ -81,10 +136,9 @@ verify_components() {
 
 # Main menu
 while true; do
-    sudo apt install figlet -y
     clear
-    figlet -f mini Creator: Abishek Kafle 
-    figlet EasyHadoop -c
+    figlet -f big "EasyHadoop"
+    echo "Creator: Abishek Kafle"
     echo "Apache Hadoop Installation and Configuration Menu"
     echo "1. Install Java"
     echo "2. Configure Hadoop User and SSH"
